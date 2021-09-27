@@ -61,18 +61,10 @@ const App = () => {
       setMessage("Congrations!! \n You Win!!")
     }
     if (Lost) {
-      setMessage("Game Over!")
+      setMessage("  Oops! \nGame Over!")
     }
 
   }, [Board])
-
-  useEffect(() => {
-
-    if (Message)
-      return alert(Message);
-    console.log(Message);
-
-  }, [Message])
 
 
   const handleKeyDown = (event) => {
@@ -93,38 +85,41 @@ const App = () => {
   return (
     <>
 
-    <div class="Title">
-      <div className="cell"><div className="number">1</div></div>
-      <div className="cell color-2"><div className="number">2</div></div>
-      <div className="cell color-8"><div className="number">8</div></div>
-      <div className="Game"><div className="number">GAME</div></div>
-      
-    </div>
-<div class="ScoresContainer">
-      <div>
-        <div>Score :</div>
-        <div>{`${Score}`}</div>
+
+      <div class="Title">
+        <div className="cell"><div className="number">1</div></div>
+        <div className="cell color-2"><div className="number">2</div></div>
+        <div className="cell color-8"><div className="number">8</div></div>
+        <div className="Game"><div className="number">GAME</div></div>
+
+      </div>
+      <div class="ScoresContainer">
+        <div>
+          <div>Score :</div>
+          <div>{`${Score}`}</div>
+        </div>
+
+        <div>
+          <div>Best Score:</div>
+          <div>{`${BestScore}`}</div>
+
+        </div>
+        <button type="button"  onClick={() => { setMessage(undefined); setBoard(newGame); }}> Restart </button>
       </div>
 
-      <div>
-        <div>Best Score:</div>
-        <div>{`${BestScore}`}</div>
-        
-      </div>
-      <button type="button" class="btn btn-danger" onClick={() => { setMessage(undefined); setBoard(newGame); }}> Restart </button>
+      <div className="message-position">
+        <table>
+          <tbody>
+            {
+              Board.map((row, i) => <Row key={i} RowKey={row}></Row>)
+            }
+          </tbody>
+        </table>
+        {(Message !== undefined) ? <div className="message"><pre>{Message}</pre></div> : ""}
       </div>
 
-      <table>
-        <tbody>
-          {
-            Board.map((row, i) => <Row key={i} RowKey={row}></Row>)
-          }
-        </tbody>
-      </table>
-      
-    <div class="instruction">Join and get to the 128 tile!</div>
-      
-      
+      <div class="instruction">Join and get to the 128 tile!</div>
+
     </>
   );
 }
