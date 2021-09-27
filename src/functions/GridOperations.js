@@ -53,7 +53,7 @@ export  const combineNumbers = grid =>{
         row[i-1]=0;
         
         //Updating Score and Best Score in local Storage
-        if(Score!=undefined)
+        if(Score!==undefined)
           Score += (row[i]);
         BestScore= (Score>BestScore) ? Score:BestScore;
         localStorage.setItem("Score",Score.toString());
