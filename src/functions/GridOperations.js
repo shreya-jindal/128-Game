@@ -1,3 +1,4 @@
+//To add new numbers on the board
 export const addNewNumber= (grid)=>{
 
     let GridCopy=grid.map((row)=>{
@@ -25,10 +26,10 @@ export const addNewNumber= (grid)=>{
 
     GridCopy[spot.x][spot.y]= randomNumber;
 
-    // console.log(GridCopy);
     return GridCopy;
   }
 
+//shift the tiles to right
 export  const slideRight=(grid)=>{
 
     return grid.map(row=>{
@@ -39,7 +40,8 @@ export  const slideRight=(grid)=>{
     })
   
   }
-  
+
+//combine same tiles
 export  const combineNumbers = grid =>{
 
   let Score=Number(localStorage.getItem("Score"))
@@ -64,7 +66,8 @@ export  const combineNumbers = grid =>{
   }
   return grid;
   }
-  
+
+//return horizontally mirrored grid
 export const horizontalMirror = grid =>{
     let GridCopy=grid.map((row)=>{
       return row.map((element)=> element)

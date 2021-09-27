@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { RightMove, LeftMove, DownMove, UpMove } from './functions/GameMoves';
 import { checkWinCondition, checkLostCondition } from './functions/Features';
-// import { handleKeyDown } from './functions/GameMoves'
 import { newGame } from './functions/Features';
+import { Row } from './RowComponent';
 
 
 const App = () => {
@@ -15,10 +15,6 @@ const App = () => {
       [0, 0, 0, 0],
       [0, 0, 0, 0]
     ]
-    // [[2, 16, 8, 16],
-    // [8, 2, 64, 32],
-    // [2, 32, 16, 2],
-    // [8, 32, 32, 8]]
   )
 
   let [Score, setScore] = useState(0);
@@ -31,7 +27,6 @@ const App = () => {
     setBoard(newGame());
     localStorage.setItem("Score", "0");
     localStorage.setItem("BestScore", "0");
-    console.log("Reloaded!");
   }, [])
 
 
@@ -46,7 +41,7 @@ const App = () => {
 
 
   useEffect(() => {
-    console.table(Board);
+    //get scores from local storage
     let ScoreFromDB = Number(localStorage.getItem("Score"))
     let BestScoreFromDB = Number(localStorage.getItem("BestScore"))
     if (ScoreFromDB !== undefined) {
@@ -67,6 +62,7 @@ const App = () => {
   }, [Board])
 
 
+  //function to handle key operations
   const handleKeyDown = (event) => {
     event.preventDefault();
 
@@ -79,21 +75,22 @@ const App = () => {
         break;
       case "ArrowLeft": setBoard(LeftMove(Board));
         break;
+      default:
     }
   }
+
 
   return (
     <>
 
-
-      <div class="Title">
+      <div className="Title">
         <div className="cell"><div className="number">1</div></div>
         <div className="cell color-2"><div className="number">2</div></div>
         <div className="cell color-8"><div className="number">8</div></div>
         <div className="Game"><div className="number">GAME</div></div>
-
       </div>
-      <div class="ScoresContainer">
+
+      <div className="ScoresContainer">
         <div>
           <div>Score :</div>
           <div>{`${Score}`}</div>
@@ -102,9 +99,9 @@ const App = () => {
         <div>
           <div>Best Score:</div>
           <div>{`${BestScore}`}</div>
-
         </div>
-        <button type="button"  onClick={() => { setMessage(undefined); setBoard(newGame); }}> Restart </button>
+
+        <button type="button" onClick={() => { setMessage(undefined); setBoard(newGame); }}> Restart </button>
       </div>
 
       <div className="message-position">
@@ -115,52 +112,14 @@ const App = () => {
             }
           </tbody>
         </table>
+
         {(Message !== undefined) ? <div className="message"><pre>{Message}</pre></div> : ""}
       </div>
 
-      <div class="instruction">Join and get to the 128 tile!</div>
+      <div className="instruction">Join via Arrow Keys and get to the 128 tile!</div>
 
     </>
   );
-}
-
-
-
-
-
-
-
-
-
-const Row = ({ RowKey }) => {
-  return (
-    <tr>
-      {
-        RowKey.map((num, i) =>
-          <Cell key={i} number={num} />
-        )
-      }
-    </tr>
-  )
-}
-
-const Cell = ({ number }) => {
-  let CellClass = "cell";
-  let CellText = (number) ? `${number}` : " ";
-  if (number) {
-    CellClass += ` color-${number}`;
-  }
-
-  return (
-    <>
-      <td>
-        <div className={CellClass}>
-          <div className="number">{CellText}</div>
-        </div>
-      </td>
-
-    </>
-  )
 }
 
 

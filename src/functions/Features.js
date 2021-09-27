@@ -47,22 +47,40 @@ export function newGame(){
       return false;
     }
 
+    let ScoreFromDB = Number(localStorage.getItem("Score"));
+    let BestScoreFromDB = Number(localStorage.getItem("BestScore"));
+
     //if original grid is different from grid after any move =>NOT Lost , otherwise Lost
     if( !Grid_compare(grid,RightMove(grid)) ){
+      if (ScoreFromDB !== undefined) {
+        localStorage.setItem("Score",ScoreFromDB);
+        localStorage.setItem("BestScore",BestScoreFromDB);
+      }  
       return false;
     }
     if( !Grid_compare(grid,LeftMove(grid)) ){
-      console.log(2);
+      if (ScoreFromDB !== undefined) {
+        localStorage.setItem("Score",ScoreFromDB);
+        localStorage.setItem("BestScore",BestScoreFromDB);
+      }
       return false;
     }
     if( !Grid_compare(grid,UpMove(grid)) ){
-      console.log(3);
+      if (ScoreFromDB !== undefined) {
+        localStorage.setItem("Score",ScoreFromDB);
+        localStorage.setItem("BestScore",BestScoreFromDB);
+      }  
       return false;
     }
     if( !Grid_compare(grid,DownMove(grid)) ){
-      console.log(4);
+      if (ScoreFromDB !== undefined) {
+        localStorage.setItem("Score",ScoreFromDB);
+        localStorage.setItem("BestScore",BestScoreFromDB);
+      }  
       return false;
     }
 
+    localStorage.setItem("Score",ScoreFromDB);
+    localStorage.setItem("BestScore",BestScoreFromDB);
     return true;
   }
