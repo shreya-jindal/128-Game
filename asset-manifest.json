@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/128-Game/static/css/main.32402cca.chunk.css",
-    "main.js": "/128-Game/static/js/main.95eb142e.chunk.js",
-    "main.js.map": "/128-Game/static/js/main.95eb142e.chunk.js.map",
+    "main.css": "/128-Game/static/css/main.552fdc8e.chunk.css",
+    "main.js": "/128-Game/static/js/main.eea5440d.chunk.js",
+    "main.js.map": "/128-Game/static/js/main.eea5440d.chunk.js.map",
     "runtime-main.js": "/128-Game/static/js/runtime-main.3110ea85.js",
     "runtime-main.js.map": "/128-Game/static/js/runtime-main.3110ea85.js.map",
     "static/js/2.6e84d90f.chunk.js": "/128-Game/static/js/2.6e84d90f.chunk.js",
     "static/js/2.6e84d90f.chunk.js.map": "/128-Game/static/js/2.6e84d90f.chunk.js.map",
     "index.html": "/128-Game/index.html",
-    "static/css/main.32402cca.chunk.css.map": "/128-Game/static/css/main.32402cca.chunk.css.map",
+    "static/css/main.552fdc8e.chunk.css.map": "/128-Game/static/css/main.552fdc8e.chunk.css.map",
     "static/js/2.6e84d90f.chunk.js.LICENSE.txt": "/128-Game/static/js/2.6e84d90f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.3110ea85.js",
     "static/js/2.6e84d90f.chunk.js",
-    "static/css/main.32402cca.chunk.css",
-    "static/js/main.95eb142e.chunk.js"
+    "static/css/main.552fdc8e.chunk.css",
+    "static/js/main.eea5440d.chunk.js"
   ]
 }
